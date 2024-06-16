@@ -1,0 +1,15 @@
+#space {
+	display: flex;
+	max-height: 512px;
+	max-width: 512px;
+	flex-wrap: wrap;
+}
+.square {
+	width: calc(512px / 16);
+	height: calc(512px / 16);
+	border: 1px solid rgb(2, 0, 7);
+	box-sizing: border-box;
+}
+.square:hover {
+	background-color: black;
+}
