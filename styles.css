@@ -1,94 +1,165 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+PL:wght@100..400&display=swap");
 
+body {
+	background-color: blueviolet;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+}
+
 #header {
-	font-family: "Playwrite PL", cursive;
 	font-optical-sizing: auto;
 	font-style: normal;
 	text-align: center;
+	margin: 1rem 0;
+	font-family: "Playwrite PL", cursive;
 }
+
+#game {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	margin: 1rem;
+	width: 90vw;
+	max-width: 200vh;
+}
+
 #space {
 	display: flex;
-	max-height: 70vh;
-	max-width: 70vh;
-	min-height: 70vh;
-	min-width: 70vh;
 	flex-wrap: wrap;
-	border: 1px solid rgb(148, 114, 235);
-	border-width: 1rem;
+
+	aspect-ratio: 1 / 1; /* Ensures a square grid */
+	border: 1rem solid rgb(148, 114, 235);
 	background-color: white;
-	margin-left: 4rem;
 }
+
 .biggerBrush {
 	width: calc(100% / 16);
 	height: calc(100% / 16);
-	/* border: 1px solid rgb(2, 0, 7); */
 	box-sizing: border-box;
 }
 
 .smallerBrush {
 	width: calc(100% / 32);
 	height: calc(100% / 32);
-	/* border: 1px solid rgb(2, 0, 7); */
-	box-sizing: border-box;
-}
-.smallerBrushExtra {
-	width: calc(100% / 64);
-	height: calc(100% / 64);
-	/* border: 1px solid rgb(2, 0, 7); */
 	box-sizing: border-box;
 }
 
-.square:hover {
-	background-color: grey; /* Just to show hover effect, not necessary */
+.smallerBrushExtra {
+	width: calc(100% / 64);
+	height: calc(100% / 64);
+	box-sizing: border-box;
 }
-#game {
-	display: flex;
-	gap: 2rem;
-	justify-content: center;
-}
-.buttons {
-	align-self: center;
-	max-width: 4rem;
-	min-width: 4rem;
-	border: 1px solid rgb(148, 114, 235);
-	border-width: 0.5rem;
-	box-shadow: none;
-	color: white;
-}
+
 #btns {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
-	border: 1px solid rgb(148, 114, 235);
-	border-width: 1rem;
-	justify-content: space-evenly;
+	align-items: center;
+	gap: 0.5rem; /* Reduced gap */
+	border: 0.5rem solid rgb(148, 114, 235);
+	padding: 0.5rem; /* Reduced padding */
+	width: 100%;
+	max-height: 70vh; /* Set maximum height to match the drawing area */
+	overflow-y: auto; /* Allows scrolling if content overflows */
 }
+
+.buttons {
+	max-width: 8rem; /* Reduced max-width */
+	min-width: 5rem; /* Reduced min-width */
+	padding: 0.3rem; /* Reduced padding */
+	border: 0.3rem solid rgb(148, 114, 235); /* Reduced border */
+	color: white;
+	border-radius: 1rem; /* Reduced border-radius */
+}
+
+.buttons:hover {
+	box-shadow: 4px 4px 6px 0px rgba(0, 0, 0, 0.5);
+}
+
+.brushBtns {
+	color: black;
+}
+
 #blueBtn {
 	background-color: blue;
 }
+
 #blackBtn {
 	background-color: black;
 }
+
 #redBtn {
 	background-color: red;
 }
+
 #greenBtn {
 	background-color: green;
 }
-body {
-	background-color: blueviolet;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
+
 .sideTitles {
-	font-size: 2rem;
+	font-size: 1.5rem; /* Reduced font size */
 	text-align: center;
 }
-.brushBtnsSection {
+
+.brushBtnsSection,
+.colorBtns {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	gap: 0.5rem;
 }
-.brushBtns {
-	color: black;
+
+@media (min-width: 768px) {
+	#game {
+		flex-direction: row;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 1rem; /* Reduced gap */
+	}
+
+	#space {
+		width: 90vh;
+	}
+
+	#btns {
+		width: auto;
+		max-height: 70vh; /* Ensure it matches the height of #space */
+		padding-bottom: 5rem;
+	}
+}
+
+@media (max-width: 767px) {
+	#game {
+		flex-direction: column;
+	}
+
+	#btns {
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		width: 100%;
+		border: none; /* Optional: remove border on small screens */
+		padding: 0.5rem;
+		gap: 0.5rem;
+	}
+
+	.colorBtns,
+	.brushBtnsSection {
+		flex-direction: row;
+		gap: 0.5rem;
+	}
+
+	.sideTitles {
+		display: none; /* Hide titles on small screens */
+	}
+
+	.buttons {
+		flex: 1 1 30%;
+		min-width: unset;
+		max-width: unset;
+		padding: 0.5rem;
+	}
 }

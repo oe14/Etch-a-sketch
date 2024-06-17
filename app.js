@@ -39,7 +39,7 @@ function createGrid(size, className) {
 setColorListeners();
 
 // Initialize the grid with the default size
-createGrid(256, "biggerBrush");
+createGrid(4096, "smallerBrushExtra");
 
 smallerBtn.addEventListener("click", function () {
 	createGrid(1024, "smallerBrush");
