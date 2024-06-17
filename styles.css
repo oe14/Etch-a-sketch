@@ -1,5 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+PL:wght@100..400&display=swap");
-
+@font-face {
+	font-family: headerFont;
+	src: url(might.ttf);
+}
 body {
 	background-color: blueviolet;
 	display: flex;
@@ -12,10 +14,12 @@ body {
 
 #header {
 	font-optical-sizing: auto;
-	font-style: normal;
+	font-weight: lighter;
 	text-align: center;
 	margin: 1rem 0;
-	font-family: "Playwrite PL", cursive;
+
+	font-family: headerFont, Impact, Haettenschweiler, "Arial Narrow Bold",
+		sans-serif;
 }
 
 #game {
