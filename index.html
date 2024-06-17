@@ -11,27 +11,35 @@
    <link rel="stylesheet" href="styles.css">
 </head>
 
-<body">
+<body>
+   <h1 id="header">Etch a Sketch</h1>
+
    <div id="game">
-      <div id="space">
-      </div>
+
+      <div id="space"></div>
 
       <div id="btns">
-         <button class="buttons" id="blackBtn">black</button>
-         <button class="buttons" id="blueBtn">blue</button>
-         <button class="buttons" id="redBtn">red</button>
-         <button class="buttons" id="greenBtn">green</button>
-         <button class="buttons" id="biggerBtn">big
-            <button class="buttons" id="smallerBtn">small
-               <button class="buttons" id="SmallerBtnExtra">smaller </button>
+         <h1 class="sideTitles" id="brushTitle">Color</h1>
+         <div class="colorBtns">
+            <button class="buttons" id="blackBtn">black</button>
+            <button class="buttons" id="blueBtn">blue</button>
+            <button class="buttons" id="redBtn">red</button>
+            <button class="buttons" id="greenBtn">green</button>
 
+         </div>
+         <h1 class="sideTitles" id="brushTitle">brush size</h1>
+         <div class="brushBtnsSection">
+            <button class="buttons brushBtns" id="biggerBtn">big
+               <button class="buttons brushBtns" id="smallerBtn">small
+                  <button class="buttons brushBtns" id="SmallerBtnExtra">smaller </button>
 
+         </div>
       </div>
 
 
 
    </div>
    <script src="app.js"></script>
-   </body>
+</body>
 
 </html>
