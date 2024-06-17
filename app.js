@@ -6,7 +6,7 @@ const greenBtn = document.getElementById("greenBtn");
 const smallerBtn = document.getElementById("smallerBtn");
 const biggerBtn = document.getElementById("biggerBtn");
 const smallerBtnExtra = document.getElementById("SmallerBtnExtra");
-
+const smallestBtn = document.getElementById("smallestBtn");
 let currentColor = "black";
 
 function setColorListeners() {
@@ -50,4 +50,7 @@ biggerBtn.addEventListener("click", function () {
 });
 smallerBtnExtra.addEventListener("click", function () {
 	createGrid(4096, "smallerBrushExtra");
+});
+smallestBtn.addEventListener("click", function () {
+	createGrid(16384, "smallestBrush");
 });
