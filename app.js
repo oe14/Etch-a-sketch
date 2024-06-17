@@ -1,52 +1,53 @@
 const space = document.getElementById("space");
-
 const blackBtn = document.getElementById("blackBtn");
 const blueBtn = document.getElementById("blueBtn");
 const redBtn = document.getElementById("redBtn");
 const greenBtn = document.getElementById("greenBtn");
+const smallerBtn = document.getElementById("smallerBtn");
+const biggerBtn = document.getElementById("biggerBtn");
+const smallerBtnExtra = document.getElementById("SmallerBtnExtra");
 
-function start() {
-	for (let i = 0; i < 256; i++) {
-		var gridsquare = document.createElement("div");
-		gridsquare.classList.add("square");
-		space.appendChild(gridsquare);
-	}
+let currentColor = "black";
 
-	// Query squares after they are added to the DOM
-	const squares = document.querySelectorAll(".square");
+function setColorListeners() {
+	blackBtn.addEventListener("click", () => (currentColor = "black"));
+	blueBtn.addEventListener("click", () => (currentColor = "blue"));
+	redBtn.addEventListener("click", () => (currentColor = "red"));
+	greenBtn.addEventListener("click", () => (currentColor = "green"));
+}
 
-	blackBtn.addEventListener("click", function () {
-		squares.forEach((square) => {
-			square.addEventListener("mouseover", function () {
-				square.style.backgroundColor = "black";
-			});
-		});
-	});
-
-	blueBtn.addEventListener("click", function () {
-		squares.forEach((square) => {
-			square.addEventListener("mouseover", function () {
-				square.style.backgroundColor = "blue";
-			});
-		});
-	});
-
-	redBtn.addEventListener("click", function () {
-		squares.forEach((square) => {
-			square.addEventListener("mouseover", function () {
-				square.style.backgroundColor = "red";
-			});
-		});
-	});
-
-	greenBtn.addEventListener("click", function () {
-		squares.forEach((square) => {
-			square.addEventListener("mouseover", function () {
-				square.style.backgroundColor = "green";
-			});
-		});
+function addMouseoverEventListeners(squares) {
+	squares.forEach((square) => {
+		square.onmouseover = function () {
+			square.style.backgroundColor = currentColor;
+		};
 	});
 }
 
-// Call the start function to initialize the grid and set up event listeners
-start();
+function createGrid(size, className) {
+	space.innerHTML = "";
+	for (let i = 0; i < size; i++) {
+		const gridsquare = document.createElement("div");
+		gridsquare.classList.add(className);
+		space.appendChild(gridsquare);
+	}
+	const squares = document.querySelectorAll(`#space > .${className}`);
+	addMouseoverEventListeners(squares);
+}
+
+// Set the initial color listeners
+setColorListeners();
+
+// Initialize the grid with the default size
+createGrid(256, "biggerBrush");
+
+smallerBtn.addEventListener("click", function () {
+	createGrid(1024, "smallerBrush");
+});
+
+biggerBtn.addEventListener("click", function () {
+	createGrid(256, "biggerBrush");
+});
+smallerBtnExtra.addEventListener("click", function () {
+	createGrid(4096, "smallerBrushExtra");
+});
