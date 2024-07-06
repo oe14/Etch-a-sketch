@@ -17,9 +17,10 @@ body {
 	font-weight: lighter;
 	text-align: center;
 	margin: 1rem 0;
-
+	font-size: 60px;
 	font-family: headerFont, Impact, Haettenschweiler, "Arial Narrow Bold",
 		sans-serif;
+	color: rgb(216, 192, 216);
 }
 
 #game {
