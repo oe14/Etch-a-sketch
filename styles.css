@@ -36,7 +36,7 @@ body {
 #space {
 	display: flex;
 	flex-wrap: wrap;
-	max-width: 100vh;
+	width: min(160px, 100%);
 	aspect-ratio: 1 / 1; /* Ensures a square grid */
 	border: 1rem solid rgb(148, 114, 235);
 	background-color: white;
@@ -121,29 +121,18 @@ body {
 	font-size: 1.5rem; /* Reduced font size */
 	text-align: center;
 }
-/* .brushBtnsSection,
-.colorBtns {
-	display: flex;
-	flex-direction: column;
-} */
+
 @media (min-width: 768px) {
-	/* Adjustments for larger screens */
 	#game {
 		flex-direction: row;
 		justify-content: center;
 		align-items: flex-start;
-		gap: 1rem; /* Reduced gap */
-	}
-
-	#space {
-		width: 70vh;
-		max-width: 70vh;
-		max-height: 70vh;
+		gap: 1rem;
 	}
 
 	#btns {
 		width: auto;
-		max-height: 70vh; /* Ensure it matches the height of #space */
+		max-height: 70vh;
 		padding-bottom: 1rem;
 	}
 
@@ -157,7 +146,11 @@ body {
 
 	.colorBtns .buttons,
 	.brushBtnsSection .buttons {
-		width: 100%; /* Ensure buttons take full width of their container */
+		width: 100%;
+	}
+	#space {
+		height: 50%;
+		width: 50%;
 	}
 }
 
@@ -168,9 +161,8 @@ body {
 	}
 
 	#space {
-		width: 65vh;
-		max-width: 65vh;
-		max-height: 65vh;
+		width: 80%;
+		height: 50%;
 	}
 
 	#btns {
@@ -185,9 +177,11 @@ body {
 	.colorBtns,
 	.brushBtnsSection {
 		flex-direction: row;
-		justify-content: space-around;
+		/* justify-content: space-around; */
 		flex-wrap: wrap;
-		gap: 1rem;
+		/* gap: 1rem; */
+		margin:0 auto;
+		width:max-content;
 	}
 
 	.sideTitles {
